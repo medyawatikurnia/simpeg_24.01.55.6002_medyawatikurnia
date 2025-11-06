@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Pegawai - SIMPEG</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-light">
+  <!-- Navbar -->
+   <div id="navbar"></div>
+    <div class="container">
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pegawai.html"><i class="bi bi-person-lines-fill"></i> Pegawai</a></li>
+        </ul>
+        <div class="d-flex align-items-center">
+          <span class="text-white me-3" id="welcomeText"></span>
+          <button class="btn btn-sm btn-light" id="logoutBtn">
+            <i class="bi bi-box-arrow-right"></i> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="container my-5">
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+      <h2 class="fw-bold text-secondary mb-0">Daftar Pegawai</h2>
+      <div class="d-flex gap-2">
+        <input type="text" id="searchInput" class="form-control" placeholder="Cari nama atau NIK..." style="width: 220px;">
+        <select id="filterStatus" class="form-select" style="width: 160px;">
+          <option value="">Semua Status</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+          <option value="probation">Probation</option>
+        </select>
+        <button class="btn btn-success shadow-sm" id="btnTambahPegawai">
+          <i class="bi bi-plus-circle me-1"></i> Tambah
+        </button>
+      </div>
+    </div>
+
+    <div class="card shadow-sm border-0">
+      <div class="card-body table-responsive">
+        <table class="table table-hover align-middle" id="employeeTable">
+          <thead class="table-primary">
+            <tr>
+              <th>ID</th>
+              <th>NIK</th>
+              <th>Nama Lengkap</th>
+              <th>Departemen</th>
+              <th>Posisi</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="7" class="text-center text-muted">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal CRUD -->
+  <div class="modal fade" id="pegawaiModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="pegawaiForm">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="pegawaiModalLabel">Tambah Pegawai</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="pegawaiId">
+
+            <div class="mb-3">
+              <label class="form-label">NIK</label>
+              <input type="text" id="nik" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nama Lengkap</label>
+              <input type="text" id="full_name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Departemen (ID)</label>
+              <input type="number" id="department_id" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Posisi (ID)</label>
+              <input type="number" id="position_id" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Status</label>
+              <select id="status" class="form-select">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="probation">Probation</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-primary text-white text-center py-3 mt-5">
+    &copy; 2025 SIMPEG — Medyawati Kurnia
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/navbar.js"></script>
+  <script src="js/pegawai.js"></script>
+
+
+</body>
+</html>
